@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lover Progress Bar</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center; /* Căn giữa ngang */
+        align-items: center; /* Căn giữa dọc */
+        height: 100vh; /* Toàn màn hình */
+        background: #0d1b2a; /* Nền xanh đậm */
+        flex-direction: column; /* Dọc: thanh trên, chữ dưới */
+      }
+
+      .progress-container {
+        width: 90vw; /* Chiều rộng responsive (90% màn hình) */
+        max-width: 350px; /* Giới hạn tối đa cho iPhone */
+        height: 40px;
+        border: 3px solid white; /* Viền trắng */
+        border-radius: 40px; /* Bo cong */
+        overflow: hidden; /* Ẩn phần thừa */
+        position: relative;
+      }
+
+      .progress-bar {
+        height: 100%;
+        width: 0; /* Bắt đầu từ 0% */
+        background: linear-gradient(90deg, #ff0055, #ff3366);
+        border-radius: 40px; /* Giữ bo tròn khi đầy */
+        animation: loading 5s linear forwards;
+        /* 5s: chạy trong 5 giây
+         linear: đều tốc độ
+         forwards: giữ trạng thái cuối */
+      }
+
+      @keyframes loading {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .love-text {
+        margin-top: 20px; /* Cách progress bar */
+        font-size: 1.5rem;
+        color: #ff3366;
+        font-weight: bold;
+        opacity: 0; /* Ẩn ban đầu */
+        animation: showText 2s ease forwards;
+        animation-delay: 5s; /* Xuất hiện sau khi bar đầy */
+        text-align: center;
+      }
+
+      @keyframes showText {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="love-text">Anh thương em nhiều lắm 💖</div>
+  </body>
+</html>
